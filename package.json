@@ -1,0 +1,16 @@
+{
+  "name": "cowxlabs-site",
+  "version": "1.0.0",
+  "description": "Cowx Labs company site: marketing pages, admin panel, and employee/client portals.",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently -n api,ui -c yellow,cyan \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm install && node server.js",
+    "serve": "cd backend && node server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
