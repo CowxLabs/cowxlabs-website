@@ -4,7 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import './db.js';
+import { initDb } from './db.js';
 import authRoutes from './routes/auth.js';
 import publicRoutes from './routes/public.js';
 import adminRoutes from './routes/admin.js';
@@ -37,6 +37,13 @@ app.use((err, req, res, next) => {
 });
 
 const HOST = process.env.HOST || '0.0.0.0';
-app.listen(PORT, HOST, () => {
-  console.log(`Cowx Labs server listening on http://${HOST}:${PORT}`);
-});
+initDb()
+  .then(() => {
+    app.listen(PORT, HOST, () => {
+      console.log(`Cowx Labs server listening on http://${HOST}:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Failed to initialize database:', err);
+    process.exit(1);
+  });

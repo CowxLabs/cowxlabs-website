@@ -37,7 +37,7 @@ export function requireRole(...roles) {
   };
 }
 
-export function getUserById(id) {
+export async function getUserById(id) {
   return db.prepare('SELECT id, name, email, role, active, created_at FROM users WHERE id = ?').get(id);
 }
 
