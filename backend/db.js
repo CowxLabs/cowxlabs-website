@@ -143,9 +143,9 @@ async function seed() {
 
   const hash = (p) => bcrypt.hashSync(p, 10);
   const insertUser = 'INSERT INTO users (name, email, password_hash, role, active) VALUES ($1,$2,$3,$4,1) RETURNING id';
-  const adminId = (await pool.query(insertUser, ['Site Admin', 'admin@cowxlabs.com', hash('admin123'), 'admin'])).rows[0].id;
-  const empId = (await pool.query(insertUser, ['Jane Developer', 'employee@cowxlabs.com', hash('employee123'), 'employee'])).rows[0].id;
-  const clientUserId = (await pool.query(insertUser, ['Bob Client', 'client@cowxlabs.com', hash('client123'), 'client'])).rows[0].id;
+  const adminId = (await pool.query(insertUser, ['Site Admin', 'admin@cowxlabs.com', hash('Jackson2020!'), 'admin'])).rows[0].id;
+  const empId = (await pool.query(insertUser, ['Jane Developer', 'employee@cowxlabs.com', hash('Jackson2020!'), 'employee'])).rows[0].id;
+  const clientUserId = (await pool.query(insertUser, ['Bob Client', 'client@cowxlabs.com', hash('Jackson2020!'), 'client'])).rows[0].id;
 
   const clientId = (await pool.query(
     'INSERT INTO clients (user_id, company_name, contact_name, email, phone, notes) VALUES ($1,$2,$3,$4,$5,$6) RETURNING id',
