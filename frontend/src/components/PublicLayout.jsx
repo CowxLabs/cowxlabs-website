@@ -89,9 +89,9 @@ export default function PublicLayout() {
             <Logo size={28} animated />
             <p className="footer-tag">Software solutions engineered for performance — and built to last.</p>
             <div className="footer-social">
-              <a href="#" aria-label="Twitter"><Twitter size={16} /></a>
-              <a href="#" aria-label="GitHub"><Github size={16} /></a>
-              <a href="#" aria-label="LinkedIn"><Linkedin size={16} /></a>
+              <a href="https://x.com/jamescowx" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><Twitter size={16} /></a>
+              <a href="https://github.com/JamesCowx" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github size={16} /></a>
+              <a href="https://www.linkedin.com/in/jamescowx" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>
             </div>
             <div className="footer-proud">
               <MapPin size={12} /> Proudly Canadian
