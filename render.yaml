@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: cowxlabs-website
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: .
+    buildCommand: npm install && npm run build
+    startCommand: npm run serve
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: JWT_SECRET
+        sync: false
+      - key: DATABASE_URL
+        value: postgresql://postgres.cpcjcicxwioaapzydbix:TableTennis1995!@aws-0-ca-central-1.pooler.supabase.com:6543/postgres?sslmode=no-verify
