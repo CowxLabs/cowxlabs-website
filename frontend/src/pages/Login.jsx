@@ -3,12 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
 
-const DEMO = [
-  { role: 'Admin', email: 'admin@cowxlabs.com', password: 'admin123' },
-  { role: 'Employee', email: 'employee@cowxlabs.com', password: 'employee123' },
-  { role: 'Client', email: 'client@cowxlabs.com', password: 'client123' }
-];
-
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -31,8 +25,6 @@ export default function Login() {
     }
   };
 
-  const fillDemo = (d) => { setEmail(d.email); setPassword(d.password); };
-
   return (
     <div className="page auth-page">
       <div className="auth-card">
@@ -54,16 +46,6 @@ export default function Login() {
             {loading ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
-
-        <div className="demo-box">
-          <div className="demo-title">Demo accounts</div>
-          {DEMO.map((d) => (
-            <button key={d.role} className="demo-row" onClick={() => fillDemo(d)}>
-              <span><strong>{d.role}</strong> · {d.email}</span>
-              <span className="demo-pw">{d.password}</span>
-            </button>
-          ))}
-        </div>
       </div>
     </div>
   );
