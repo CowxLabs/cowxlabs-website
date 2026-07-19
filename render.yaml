@@ -16,6 +16,6 @@ services:
       - key: HOST
         value: "0.0.0.0"
       - key: JWT_SECRET
-        sync: false
+        value: jwt_cowxlabs_9f3a7c21e8b4d6f0a1c5e9b2d7f4a8c3b6e0d1f9a2c4b7e5d8f1a3c6b9e2d4f7
       - key: DATABASE_URL
         value: postgresql://postgres.cpcjcicxwioaapzydbix:TableTennis1995!@aws-0-ca-central-1.pooler.supabase.com:6543/postgres?sslmode=no-verify
