@@ -80,6 +80,32 @@ const PROJECTS = [
       approach: 'Built CowxPass so every password is encrypted with AES-256-GCM before it leaves the device; a zero-knowledge architecture means even the server cannot read user data. Added cloud sync, one-click autofill, a cryptographically random password generator, secure notes, and dark web breach monitoring.',
       outcome: 'Delivered a clean, genuinely secure password manager that proves deep security engineering — encryption, sync, and threat monitoring — can be built simply and transparently.'
     }
+  },
+  {
+    name: 'Black Tuesday MC', client: 'James Cowx', cat: 'web', icon: 'web',
+    summary: 'Custom Minecraft server with community economy, custom enchantments and a real-time web player dashboard.',
+    tags: ['Java', 'Paper', 'Node.js', 'TypeScript', 'React', 'Docker'],
+    metrics: [{ value: 'Live', label: 'player dashboard' }, { value: 'Custom', label: 'plugins & economy' }],
+    siteUrl: 'https://www.blacktuesday.online',
+    sourceUrl: 'https://github.com/JamesCowx/black-tuesday-mc',
+    caseStudy: {
+      challenge: 'A thriving Minecraft community needed more than a vanilla server — they wanted custom gameplay, a player-driven economy, and a way to check live server stats from any browser without launching the game.',
+      approach: 'Built a custom Paper/Spigot server with bespoke plugins: land claiming, custom enchantments, PvP arenas, and an economy system. Paired it with a Node.js + React web dashboard showing real-time server status, player activity, and world stats.',
+      outcome: 'Shipped a complete community gaming platform — from server-side plugin engineering in Java to a polished real-time web frontend — that keeps players engaged across both the game and the browser.'
+    }
+  },
+  {
+    name: 'PokeCloud', client: 'James Cowx', cat: 'web', icon: 'web',
+    summary: 'Browser Pokemon gaming with cloud-saved progress — play on any device, never lose a save.',
+    tags: ['Node.js', 'TypeScript', 'React', 'PostgreSQL', 'Docker', 'Redis'],
+    metrics: [{ value: 'GBA→NDS', label: 'ROM support' }, { value: 'Cloud', label: 'saved progress' }],
+    siteUrl: 'https://pokecloud.onrender.com',
+    sourceUrl: 'https://github.com/JamesCowx/pokecloud',
+    caseStudy: {
+      challenge: 'Pokemon fans wanted to play on any device without emulators or losing save data. Existing options forced downloads and offered no reliable cross-device progress sync.',
+      approach: 'Built PokeCloud to run games directly in the browser — no downloads, no emulators — supporting GBA, GB, GBC and NDS ROMs. Added secure accounts with encrypted passwords and automatic cloud saves backed by PostgreSQL and Redis, with optimized on-screen controls.',
+      outcome: 'Delivered a frictionless cloud gaming experience where players pick up their adventure on any device and never lose progress — demonstrating full-stack product thinking from emulation hosting to account security.'
+    }
   }
 ];
 
