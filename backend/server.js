@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()');
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://formspree.io https://cowxlabs-website.onrender.com wss://www.cowxlabs.com; img-src 'self' data:; font-src 'self' data:; base-uri 'self'; frame-ancestors 'none'");
+  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://formspree.io https://cowxlabs-website.onrender.com wss://www.cowxlabs.com; img-src 'self' data:; font-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; websocket-src 'self'");
   next();
 });
 
