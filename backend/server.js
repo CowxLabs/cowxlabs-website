@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import compression from 'compression';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(cors({ origin: ['https://www.cowxlabs.com', 'https://cowxlabs-website.onrender.com'], credentials: true }));
 app.disable('x-powered-by');
+app.use(compression());
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -41,8 +43,30 @@ app.use('/api/employee', employeeRoutes);
 app.use('/api/client', clientRoutes);
 
 const frontendDist = path.join(__dirname, '..', 'frontend', 'dist');
-app.use(express.static(frontendDist));
+app.use('/assets', express.static(path.join(frontendDist, 'assets'), {
+  maxAge: '365d',
+  immutable: true,
+  setHeaders: (res) => { res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); },
+}));
+app.use('/favicon.svg', express.static(path.join(frontendDist, 'favicon.svg'), {
+  maxAge: '7d',
+  setHeaders: (res) => { res.setHeader('Cache-Control', 'public, max-age=604800'); },
+}));
+app.use('/robots.txt', express.static(path.join(frontendDist, 'robots.txt'), {
+  maxAge: '7d',
+}));
+app.use('/sitemap.xml', express.static(path.join(frontendDist, 'sitemap.xml'), {
+  maxAge: '7d',
+}));
+app.use(express.static(frontendDist, {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  },
+}));
 app.get(/^(?!\/api).*/, (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache');
   res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
