@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal.jsx';
 import Magnetic from '../components/Magnetic.jsx';
 import Faq from '../components/Faq.jsx';
 import { Check, ArrowRight, Sparkles, Zap, Building2, Star, HelpCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PLANS = [
   {
@@ -65,7 +66,13 @@ export default function Pricing() {
   };
 
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>Pricing — Transparent Software Development Rates | Cowx Labs</title>
+        <meta name="description" content="Project, retainer, and enterprise pricing for custom software development. Starting at $2,500/project. No hidden fees — Vancouver-based engineering studio." />
+        <link rel="canonical" href="https://www.cowxlabs.com/pricing" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -143,5 +150,6 @@ export default function Pricing() {
         <Faq items={FAQ} />
       </section>
     </div>
+    </>
   );
 }

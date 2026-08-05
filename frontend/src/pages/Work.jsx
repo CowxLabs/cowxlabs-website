@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal.jsx';
 import Tilt from '../components/Tilt.jsx';
 import Spotlight from '../components/Spotlight.jsx';
 import { ArrowUpRight, Globe, Smartphone, Cloud, Bitcoin, Cpu, ArrowRight, ExternalLink, Github } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const CATS = [
   { id: 'all', label: 'All work' },
@@ -116,7 +117,13 @@ export default function Work() {
   const activeProject = active ? PROJECTS.find((p) => p.name === active) : null;
 
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>Our Work — Projects & Case Studies | Cowx Labs</title>
+        <meta name="description" content="Explore 7 shipped products by James Cowx: VoidTorrent, CowxCrypto, CowxWallet, CowxCode, CowxPass, Black Tuesday MC, and PokeCloud. Full-stack engineering, end to end." />
+        <link rel="canonical" href="https://www.cowxlabs.com/work" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -228,5 +235,6 @@ export default function Work() {
         </Reveal>
       </section>
     </div>
+    </>
   );
 }

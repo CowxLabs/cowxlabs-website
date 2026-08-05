@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal.jsx';
 import CountUp from '../components/CountUp.jsx';
 import Magnetic from '../components/Magnetic.jsx';
+import { Helmet } from 'react-helmet-async';
 import { Target, Users2, Rocket, Heart, ArrowRight, CheckCircle2, Zap, ExternalLink, MapPin } from 'lucide-react';
 
 const VALUES = [
@@ -20,7 +21,13 @@ const METRICS = [
 
 export default function About() {
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>About Cowx Labs — Vancouver Software Engineering Studio</title>
+        <meta name="description" content="Founded in Vancouver, BC. Cowx Labs delivers custom software with 120+ projects shipped. Meet James Cowx and learn how we build software that lasts." />
+        <link rel="canonical" href="https://www.cowxlabs.com/about" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -123,5 +130,6 @@ export default function About() {
         </Reveal>
       </section>
     </div>
+    </>
   );
 }

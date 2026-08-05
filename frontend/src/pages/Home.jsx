@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import api from '../api.js';
 import { useEffect, useState } from 'react';
 import Reveal from '../components/Reveal.jsx';
+import { Helmet } from 'react-helmet-async';
 import CountUp from '../components/CountUp.jsx';
 import Magnetic from '../components/Magnetic.jsx';
 import Tilt from '../components/Tilt.jsx';
@@ -36,7 +37,13 @@ export default function Home() {
   useEffect(() => { api.get('/services').then((r) => setServices(r.data)).catch(() => {}); }, []);
 
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>Cowx Labs — Custom Software Development & Cloud Engineering | Vancouver, BC</title>
+        <meta name="description" content="Cowx Labs builds custom software, cloud infrastructure & AI solutions. Vancouver-based engineering studio delivering enterprise-grade apps, DevOps, and digital transformation." />
+        <link rel="canonical" href="https://www.cowxlabs.com" />
+      </Helmet>
+      <div className="page">
       {/* HERO */}
       <section className="hero">
         <div className="hero-glow" aria-hidden="true" />
@@ -259,6 +266,7 @@ export default function Home() {
         </Reveal>
       </section>
     </div>
+    </>
   );
 }
 

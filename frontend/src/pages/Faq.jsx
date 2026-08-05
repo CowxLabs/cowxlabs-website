@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal.jsx';
 import Faq from '../components/Faq.jsx';
 import Magnetic from '../components/Magnetic.jsx';
 import { ArrowRight, MessageCircle, HelpCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const GROUPS = [
   {
@@ -36,7 +37,13 @@ const GROUPS = [
 
 export default function FaqPage() {
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>FAQ — Software Development Questions Answered | Cowx Labs</title>
+        <meta name="description" content="Common questions about working with Cowx Labs: our process, timelines, technology stack, pricing, and what to expect from a Vancouver-based engineering partner." />
+        <link rel="canonical" href="https://www.cowxlabs.com/faq" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -69,5 +76,6 @@ export default function FaqPage() {
         </Reveal>
       </section>
     </div>
+    </>
   );
 }

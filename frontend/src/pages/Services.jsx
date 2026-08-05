@@ -3,6 +3,7 @@ import api from '../api.js';
 import { useEffect, useState } from 'react';
 import Reveal from '../components/Reveal.jsx';
 import { Code2, Cloud, BarChart3, Cpu, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ICON_MAP = { code: Code2, cloud: Cloud, chart: BarChart3, compass: Cpu, shield: ShieldCheck };
 
@@ -11,7 +12,13 @@ export default function Services() {
   useEffect(() => { api.get('/services').then((r) => setServices(r.data)).catch(() => {}); }, []);
 
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>Software Development Services — Web, Cloud, AI & DevOps | Cowx Labs</title>
+        <meta name="description" content="End-to-end software services: custom web & mobile apps, cloud migration, AI automation, data engineering, and DevOps consulting. Based in Vancouver, BC." />
+        <link rel="canonical" href="https://www.cowxlabs.com/services" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -52,5 +59,6 @@ export default function Services() {
         </Reveal>
       </section>
     </div>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal.jsx';
 import { Mail, MapPin, Clock, Send, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgnwawq';
 
@@ -39,7 +40,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="page">
+    <>
+      <Helmet>
+        <title>Contact Cowx Labs — Start Your Software Project | Vancouver, BC</title>
+        <meta name="description" content="Ready to build? Contact Cowx Labs for a free project consultation. Vancouver-based custom software development. Response within 1 business day." />
+        <link rel="canonical" href="https://www.cowxlabs.com/contact" />
+      </Helmet>
+      <div className="page">
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -97,5 +104,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }
